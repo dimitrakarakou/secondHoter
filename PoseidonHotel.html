@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- For Dates-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <title>Welcome to City Hotel 54</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/one-page-wonder.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+    function DisableWeekDays(date) {
+     
+         var weekenddate = $.datepicker.noWeekends(date);
+         var disableweek = [!weekenddate[0]]; 
+         return disableweek;
+         } 
+    </script>
+    <script>
+    $(document).ready(function(){
+         $("#datepicker2").datepicker({
+            beforeShowDay: DisableWeekDays,
+            onSelect: function(dateString){
+                alert('Please select a start date');
+                $('#datepicker2').datepicker('setDate', null);
+            }
+         });
+        $( "#datepicker1" ).datepicker({
+            beforeShowDay: DisableWeekDays,
+            onSelect: function(dateString) {
+                alert('Date is '+dateString);
+                    var date2 = $('#datepicker1').datepicker('getDate');
+                    var holdDay = date2.getDay(); 
+                    if(holdDay=="0"){
+                        date2.setDate(date2.getDate())
+                        $( "#datepicker2" ).datepicker("setDate", date2);
+                    }
+                    else{
+                        date2.setDate(date2.getDate()+1)
+                        $( "#datepicker2" ).datepicker("setDate", date2);
+                    }
+            }
+        });
+    });
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">City Hotel 54</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a>Live your dream vacations few steps... away from your place</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+ 
+
+
+<div class="featurette" id="Intercontinental">
+    <p><strong> Poseidon Hotel </strong></p>
+    <p>Το ξενοδοχείο "Ποσειδών" απέχει από την Πάτρα μόλις 14 χλμ. και βρίσκεται στα Καμίνια Αχαΐας, επί της Παλαιάς Εθνικής οδού Πατρών-Πύργου,</p>
+    <p> δίπλα στη θάλασσα, σε ένα καταπράσινο μαγευτικό τοπίο, όπου μπορεί κανείς να απολαύσει στιγμές ηρεμίας και απόλυτης χαλάρωσης. </p>
+    <p>Όποιος και να είναι ο λόγος της επίσκεψής σας στην πόλη της Πάτρας, το ξενοδοχείο μας εγγυάται την άνετη διαμονή σας σ' ένα ευχάριστο περιβάλλον</p>
+    <p> με μοντέρνα αισθητική και κυρίως φιλική κι άψογη εξυπηρέτηση. </p>
+    <p>Τόσο η οικογενειακή ατμόσφαιρα όσο και το φιλικό χαμόγελο των ιδιοκτητών αλλά και του πάντοτε ευγενικού προσωπικού, </p>
+    <p>θα σας κάνουν να αισθανθείτε από την πρώτη κιόλας στιγμή σαν στο σπίτι σας.</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3137.450252747595!2d21.626523315355605!3d38.15297419808263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135e3a4f37bf76b7%3A0xbffa25574930512e!2sPoseidon+Palace!5e0!3m2!1sel!2sgr!4v1447334340444" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+
+
+</div>
+
+<hr class="featurette-divider">
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; md 2015</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+</body>
+
+</html>

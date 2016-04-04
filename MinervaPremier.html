@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- For Dates-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <title>Welcome to City Hotel 54</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/one-page-wonder.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+    function DisableWeekDays(date) {
+     
+         var weekenddate = $.datepicker.noWeekends(date);
+         var disableweek = [!weekenddate[0]]; 
+         return disableweek;
+         } 
+    </script>
+    <script>
+    $(document).ready(function(){
+         $("#datepicker2").datepicker({
+            beforeShowDay: DisableWeekDays,
+            onSelect: function(dateString){
+                alert('Please select a start date');
+                $('#datepicker2').datepicker('setDate', null);
+            }
+         });
+        $( "#datepicker1" ).datepicker({
+            beforeShowDay: DisableWeekDays,
+            onSelect: function(dateString) {
+                alert('Date is '+dateString);
+                    var date2 = $('#datepicker1').datepicker('getDate');
+                    var holdDay = date2.getDay(); 
+                    if(holdDay=="0"){
+                        date2.setDate(date2.getDate())
+                        $( "#datepicker2" ).datepicker("setDate", date2);
+                    }
+                    else{
+                        date2.setDate(date2.getDate()+1)
+                        $( "#datepicker2" ).datepicker("setDate", date2);
+                    }
+            }
+        });
+    });
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">City Hotel 54</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a>Live your dream vacations few steps... away from your place</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+ 
+
+
+<div class="featurette" id="Intercontinental">
+    <p><strong>Minerva Premier</strong></p>
+    <p>Το Minerna βρίσκεται στην καρδιά της Θεσσαλονίκης, σε κοντινή απόσταση με τα πόδια από τα ιστορικά μνημεία της πόλης και 1χλμ. από το λιμάνι. </p>
+    <p>Προσφέρει κομψά καταλύματα με δωρεάν Wi-Fi, καθώς και εστιατόριο.<p>
+    <p>Τα δωμάτια και οι σουίτες στο Minerva Premier Hotel είναι κλιματιζόμενα και διαθέτουν ξύλινα δάπεδα και μαρμάρινο μπάνιο. Περιλαμβάνουν θυρίδα ασφαλείας και μίνι μπαρ. </p>
+    <p>Όλες οι μονάδες ανοίγουν σε ιδιωτικό μπαλκόνι.</p>
+    <p>Το εστιατόριο του ξενοδοχείου σερβίρει ελληνική και διεθνή κουζίνα. </p>
+    <p>Ο Διεθνής Αερολιμένας Μακεδονία απέχει 12χλμ. από το ξενοδοχείο. Η κεντρική Πλατεία Αριστοτέλους είναι προσβάσιμη σε 10 λεπτά με τα πόδια.</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3027.636769295316!2d22.937862415402687!3d40.63789177934011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a839a7cba6c12d%3A0x6261e0d3bb2b7e5d!2sHotel+Minerva+Premier!5e0!3m2!1sel!2sgr!4v1447319872771" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <p>Start your journey <input type="text1" id="datepicker1">   &nbsp Return <input type="text1" id="datepicker2"></p>  
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+
+
+</div>
+
+<hr class="featurette-divider">
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; md 2015</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+</body>
+
+</html>

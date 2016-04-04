@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- For Dates-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <title>Welcome to City Hotel 54</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/one-page-wonder.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script >
+        $("input:checkbox").on('click', function() {
+  // in the handler, 'this' refers to the box clicked on
+  var $box = $(this);
+  if ($box.is(":checked")) {
+    // the name of the box is retrieved using the .attr() method
+    // as it is assumed and expected to be immutable
+    var group = "input:checkbox[name='" + $box.attr("name") + "']";
+    // the checked state of the group/box on the other hand will change
+    // and the current value is retrieved using .prop() method
+    $(group).prop("checked", false);
+    $box.prop("checked", true);
+  } else {
+    $box.prop("checked", false);
+  }
+});
+    </script>
+    <script>
+    function DisableWeekDays(date) { 
+        var day = date.getDay();
+
+        if (day == 0 || day == 1 || day == 2 || day == 3 || day == 4) {
+            return [false] ; 
+        } else { 
+            return [true] ;
+        } 
+    } 
+    </script>
+    <script>
+    $(document).ready(function(){
+         $("#datepicker2").datepicker({
+            beforeShowDay: DisableWeekDays,
+            onSelect: function(dateString){
+                alert('Please select a start date');
+                $('#datepicker2').datepicker('setDate', null);
+            }
+         });
+        $( "#datepicker1" ).datepicker({
+            beforeShowDay: DisableWeekDays,
+            onSelect: function(dateString) {
+                alert('Date is '+dateString);
+                    var date2 = $('#datepicker1').datepicker('getDate');
+                    var holdDay = date2.getDay(); 
+                    if(holdDay=="6"){
+                        date2.setDate(date2.getDate())
+                        $( "#datepicker2" ).datepicker("setDate", date2);
+                    }
+                    else{
+                        date2.setDate(date2.getDate()+1)
+                        $( "#datepicker2" ).datepicker("setDate", date2);
+                    }
+            }
+        });
+    });
+    </script>
+
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">City Hotel 54</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a>Live your dream vacations few steps... away from your place</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+ 
+
+<div class="featurette" id="GrandBretagne">
+    <p><strong>Grand Bretagne</strong></p>
+    <p>The 5 star Hotel Grande Bretagne, is a historic landmark in the heart of Athens, </p>
+    <p>featuring an awarded Spa and a roof-top restaurant with amazing views.</p>
+    <p>Constitution Square, Athina 105 64, Greece
+    <p>Tel: +30 21 0333 0000</p>
+    <br>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3145.0396544476885!2d23.733035115323347!3d37.976203879723315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1445166249414" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>        
+    
+    <br>
+    <br>
+    <br>
+        <form action="" method="post">
+          <p>Start your journey <input type="text1" id="datepicker1">   &nbsp Return <input type="text1" id="datepicker2"></p>  
+            <br>
+          <p><input type="radio" name="joke" value="Βεd" /> Breakfast (20 Euro per person)
+          <br>
+          <input type="radio" name="joke" value="clock" /> Half Board (50 Euro per person)
+        </form>
+    <br>
+  <div>
+
+
+<hr class="featurette-divider">
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; md 2015</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</body>
+
+</html>
